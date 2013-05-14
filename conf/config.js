@@ -1,4 +1,6 @@
-﻿module.exports = {
+﻿var fs = require('fs');
+
+module.exports = {
 	port: 5555,
     title: 'Mediaplayer',
 	env: 'public', // public | local
@@ -24,19 +26,19 @@
 						var end = new Date();
 						var duration = end.getTime() - start.getTime();
 						var mbSize = Math.round(100*req.files.uploadFile.size/(1024*1024))/100;
-						tm.displayOnScreen(newPath);
-						refreshPlaylist();
+						mediaplayerService.displayOnScreen(newPath);
+						mediaplayerService.refreshPlaylist();
 						res.render('titlelist', { title: 'Mediaplayer', uploadStatus: 'Datei mit ' + mbSize + 'MB hochgeladen in ' + duration + ' seconds' });
 					});
 				});
             }
 		}],
-        redirect: [{
-            route: '/',
-            view: 'mediaplayer',
+        redirect: [/*{
+            route: '/mediaplayer',
+            view: 'index',
             callback: function (req, res) {
                 return {title: ''};
             }
-        }]
+        }*/]
     }
 };
