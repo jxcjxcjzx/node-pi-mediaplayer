@@ -1,0 +1,35 @@
+﻿{
+	"name": "pi-mediaplayer",
+	"version": "0.0.1",
+	"description": "A media player for Raspberry Pi.",
+	"homepage": "http://github.com/marcusbaer/node-pi-mediaplayer",
+    "keywords": ["raspberry", "media", "player"],
+	"author": "Marcus Baer <info@baer-media.com>",
+	"repository": {
+		"type": "git",
+		"url": "http://github.com/marcusbaer/node-pi-mediaplayer.git"
+	},
+	"bugs": {
+		"url": "https://github.com/marcusbaer/node-pi-mediaplayer/issues"
+	},
+	"licenses" : [
+        {
+            "type": "MIT",
+            "url": "http://github.com/marcusbaer/node-pi-mediaplayer/blob/master/LICENSE"
+        }
+    ],
+	"engines" : {
+		"node": ">=0.10",
+		"npm": ">=1.2.14"
+	},
+	"dependencies": {
+		"optimist": "~0.4.0",
+		"doxybox": "~0.1.0",
+		"underscore": ">=1.4.4",
+		"backbone": ">=1.0.0"
+	},
+	"bin": {
+		"mediaplayer": "./bin/mediaplayer"
+	},
+	"main": "./mediaplayer.js"
+}
