@@ -43,6 +43,9 @@ html(lang="de")
 					br
 					input(type='submit', name='submit', value='senden')
         section#footer
+    script#modelbase(type='text/template')
+        div(class="model modeltype-<%=modelType%> viewsize-<%=viewSize%>)
+            p <%=name%>
     script(type='text/javascript')
         function log(val) {
             $('#log').text(val);

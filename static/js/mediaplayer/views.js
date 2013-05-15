@@ -8,7 +8,8 @@
 
     var ModelBase = Backbone.View.extend({
 
-        template: _.template('<div class="model modeltype-<%=modelType%> viewsize-<%=viewSize%>"><p><%=name%></p></div>'),
+        template: _.template($('#modelbase').html()),
+//        template: _.template('<div class="model modeltype-<%=modelType%> viewsize-<%=viewSize%>"><p><%=name%></p></div>'),
 
         events: {
             "click p": "open"
