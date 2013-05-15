@@ -72,19 +72,19 @@
     Views.SmallCollection = CollectionBase.extend({
         className: "collection-1",
         itemView: Views.SmallModel,
-        template: _.template('<h3>SMALL Collection</h3>')
+        template: _.template($('#smallcollection').html())
     });
 
-    Views.MiddleCollection = MessagesBase.extend({
+    Views.MiddleCollection = CollectionBase.extend({
         className: "collection-2",
         itemView: Views.MiddleModel,
-        template: _.template('<h3>MIDDLE Collection</h3>')
+        template: _.template($('#middlecollection').html())
     });
 
-    Views.LargeCollection = MessagesBase.extend({
+    Views.LargeCollection = CollectionBase.extend({
         className: "collection-3",
         itemView: Views.LargeModel,
-        template: _.template('<h3>LARGE Collection</h3>')
+        template: _.template($('#largecollection').html())
     });
 
     return Views;

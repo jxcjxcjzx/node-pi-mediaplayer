@@ -1,7 +1,7 @@
 ﻿!!!
 html(lang="de")
   head
-    title= title
+    title Mediaplayer
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
     meta(name="viewport", content="width=device-width,initial-scale=1,maximum-scale=1")
@@ -31,34 +31,44 @@ html(lang="de")
   body
     div#log
     div#main
-        section#header
-        section#body
-			div#app
-			div#upload
-				div#upload-status #{uploadStatus}
-				form(action="", method="post", enctype="multipart/form-data")
-					input(type='file', name='uploadFile')
-					br
-					input(type='text' name='uploadName')
-					br
-					input(type='submit', name='submit', value='senden')
-        section#footer
+      section#header
+      section#body
+        div#app
+      section#footer
     script#modelbase(type='text/template')
-        div(class="model modeltype-<%=modelType%> viewsize-<%=viewSize%>)
-            p <%=name%>
+      div(class="model modeltype-<%= modelType%> viewsize-<%= viewSize%>")
+        p <%= name%>
+    script#uploadform(type='text/template')
+        div#upload
+          div#upload-status <%= uploadStatus%>
+          form(action="", method="post", enctype="multipart/form-data")
+            input(type='file', name='uploadFile')
+            br
+            input(type='text', name='uploadName')
+            br
+            input(type='submit', name='submit', value='senden')
+    script#smallcollection(type='text/template')
+        h3 SMALL Collection
+        div.collection <%= collection%>
+    script#middlecollection(type='text/template')
+        h3 MIDDLE Collection
+        div.collection <%= collection%>
+    script#largecollection(type='text/template')
+        h3 LARGE Collection
+        div.collection <%= collection%>
     script(type='text/javascript')
         function log(val) {
-            $('#log').text(val);
+          $('#log').text(val);
         }
         function addToPlaylistById (id) {
-            $.get('service/playlist/add/'+id, function(data) {
-                console.log(data);
-            });
+          $.get('service/playlist/add/'+id, function(data) {
+            console.log(data);
+          });
         }
         function addToPlaylistByName (name) {
-            $.get('service/playlist/addtitle/'+name, function(data) {
-                console.log(data);
-            });
+          $.get('service/playlist/addtitle/'+name, function(data) {
+            console.log(data);
+          });
         }
         $(document).ready(function() {
             $.get('service/titles', function(data) {
