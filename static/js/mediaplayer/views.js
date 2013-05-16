@@ -19,6 +19,9 @@
         },
         render: function () {
             this.$el.html(this.template(_.extend(this.model.attributes, {modelType: this.model.type, viewSize: this.viewSize })));
+			if (_.isFunction(this.renderFinal)) {
+				this.renderFinal();
+			}
             return this;
         },
         open: function () {
@@ -31,7 +34,20 @@
     });
 
     Views.MiddleModel = ModelView.extend({
-        viewSize: 2
+        viewSize: 2,
+		events: {
+			"click .model": "playFile"
+		},
+		playFile: function () {
+			this.model.addToPlaylist();
+		},
+		renderFinal: function () {
+			if (this.model.get("added")) {
+				this.$el.find(".model").addClass("playlist");
+			} else {
+				this.$el.find(".model").removeClass("playlist");
+			}
+		}
     });
 
     Views.LargeModel = ModelView.extend({

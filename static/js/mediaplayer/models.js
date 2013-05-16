@@ -34,9 +34,27 @@
             uid: null,
             name: null,
             labels: new Labels(),
-			mediatype: null,
+			mediatype: null, // audio | video | image | folder
+			added: null,
 			path: null
-        }
+        },
+		addToPlaylist: function () {
+			var self = this;
+			$.ajax({
+			  type: "PUT",
+			  url: '/service/playlist/' + this.get('uid'),
+			  data: {}
+			}).done(function successfulAddedToPlaylist (response) {
+				var playlist = response.collection;
+				var uid = self.get('uid');
+				_.each(playlist, function (playlistitem) {
+					if (playlistitem.uid === uid) {
+						console.log("added to playlist");
+						self.set("added", playlistitem.added);
+					}
+				});
+			});
+		}
     });
 
     var Mediafiles = Models.Mediafiles = CollectionAbstract.extend({
