@@ -1,6 +1,6 @@
 ﻿{
 	"name": "pi-mediaplayer",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "A media player for Raspberry Pi.",
 	"homepage": "http://github.com/marcusbaer/node-pi-mediaplayer",
     "keywords": ["raspberry", "media", "player"],
@@ -24,7 +24,7 @@
 	},
 	"dependencies": {
 		"optimist": "~0.4.0",
-		"doxybox": "~0.1.0",
+		"doxybox": ">=0.1.1",
 		"underscore": ">=1.4.4",
 		"backbone": ">=1.0.0"
 	},
