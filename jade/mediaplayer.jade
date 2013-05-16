@@ -37,7 +37,7 @@ html(lang="de")
       section#footer
     script#modelbase(type='text/template')
       div(class="model modeltype-<%= modelType%> viewsize-<%= viewSize%>")
-        p <%= name%>
+        p <%= name%> <%= modelType%>
     script#uploadform(type='text/template')
         div#upload
           div#upload-status <%= uploadStatus%>
@@ -71,15 +71,15 @@ html(lang="de")
           });
         }
         $(document).ready(function() {
-            $.get('service/titles', function(data) {
-                console.log(data);
-                $('#app').html('');
-                for (var i=0; i<data.list.length; i++) {
-                    $('#app').append('<div class="title" data-id="' + data.list[i].id + '"><span class="info" data-id="' + data.list[i].id + '">' + data.list[i].name + ' - ' + data.list[i].album + ' (' + data.list[i].interpret + ')</span></div>');
-                    /*$('#app').append('<div class="title"><span class="info" data-id="' + data.list[i].id + '">' + data.list[i].name + ' - ' + data.list[i].album + ' (' + data.list[i].interpret + ')</span><audio controls><source src="titlestream/' + data.list[i].interpret + '/' + data.list[i].album + '/' + data.list[i].name + '.mp3" /></audio></div>');*/
-                }
-                $('.title').click(function(){
-                    addToPlaylistById($(this).attr('data-id'));
-                });
-            });
+            //$.get('service/titles', function(data) {
+            //    console.log(data);
+            //    $('#app').html('');
+            //    for (var i=0; i<data.list.length; i++) {
+            //        $('#app').append('<div class="title" data-id="' + data.list[i].id + '"><span class="info" data-id="' + data.list[i].id + '">' + data.list[i].name + ' - ' + data.list[i].album + ' (' + data.list[i].interpret + ')</span></div>');
+            //        /*$('#app').append('<div class="title"><span class="info" data-id="' + data.list[i].id + '">' + data.list[i].name + ' - ' + data.list[i].album + ' (' + data.list[i].interpret + ')</span><audio controls><source src="titlestream/' + data.list[i].interpret + '/' + data.list[i].album + '/' + data.list[i].name + '.mp3" /></audio></div>');*/
+            //    }
+            //    $('.title').click(function(){
+            //        addToPlaylistById($(this).attr('data-id'));
+            //    });
+            //});
         });

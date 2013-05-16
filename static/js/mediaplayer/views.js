@@ -6,10 +6,9 @@
 
     var Views = {};
 
-    var ModelBase = Backbone.View.extend({
+    var ModelView = Backbone.View.extend({
 
         template: _.template($('#modelbase').html()),
-//        template: _.template('<div class="model modeltype-<%=modelType%> viewsize-<%=viewSize%>"><p><%=name%></p></div>'),
 
         events: {
             "click p": "open"
@@ -27,19 +26,19 @@
         }
     });
 
-    Views.SmallModel = ModelBase.extend({
+    Views.SmallModel = ModelView.extend({
         viewSize: 1
     });
 
-    Views.MiddleModel = ModelBase.extend({
+    Views.MiddleModel = ModelView.extend({
         viewSize: 2
     });
 
-    Views.LargeModel = ModelBase.extend({
+    Views.LargeModel = ModelView.extend({
         viewSize: 3
     });
-
-    var CollectionBase = Backbone.View.extend({
+/*
+    var CollectionView = Backbone.View.extend({
 
         tagName: "div",
 
@@ -69,24 +68,24 @@
         }
     });
 
-    Views.SmallCollection = CollectionBase.extend({
+    Views.SmallCollection = CollectionView.extend({
         className: "collection-1",
         itemView: Views.SmallModel,
         template: _.template($('#smallcollection').html())
     });
 
-    Views.MiddleCollection = CollectionBase.extend({
+    Views.MiddleCollection = CollectionView.extend({
         className: "collection-2",
         itemView: Views.MiddleModel,
         template: _.template($('#middlecollection').html())
     });
 
-    Views.LargeCollection = CollectionBase.extend({
+    Views.LargeCollection = CollectionView.extend({
         className: "collection-3",
         itemView: Views.LargeModel,
         template: _.template($('#largecollection').html())
     });
-
+*/
     return Views;
 
 });

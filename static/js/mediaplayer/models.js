@@ -19,7 +19,7 @@
 
     var Labels = Models.Labels = CollectionAbstract.extend({
         model: Label,
-        getList: function (id) {
+        getList: function (uid) {
             return this.toJSON();
         },
         addLabel: function (attrs) {
@@ -29,8 +29,9 @@
 
     var Mediafile = Models.Mediafile = ModelAbstract.extend({
 		type: 'mediafile',
+		urlRoot: '/service/mediafile',
         defaults: {
-            id: null,
+            uid: null,
             name: null,
             labels: new Labels(),
 			mediatype: null,
@@ -40,7 +41,10 @@
 
     var Mediafiles = Models.Mediafiles = CollectionAbstract.extend({
         model: Mediafile,
-        url: 'service/mediafiles'
+        url: '/service/mediafiles',
+		parse: function(response) {
+			return response.collection;
+		}
     });
 
     return Models;
