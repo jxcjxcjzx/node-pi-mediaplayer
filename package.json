@@ -26,7 +26,8 @@
 		"optimist": "~0.4.0",
 		"doxybox": ">=0.1.1",
 		"underscore": ">=1.4.4",
-		"backbone": ">=1.0.0"
+		"backbone": ">=1.0.0",
+		"findit": ">=0.1.2"
 	},
 	"bin": {
 		"mediaplayer": "./bin/mediaplayer"
